@@ -24,9 +24,8 @@
   <center>
     <div><p style="margin-bottom: 20px;">Выберите нужное рассписание:</p>
       <select class="custom-select" id="mySelect">
-        <option style="padding-left: 20px;">Клик!</option>
+        <option style="padding-left: 20px;">Click!</option>
         <option>ДГУ: ИСИТ 2</option>
-        <option>ДГУ: ИСИТ 3</option>
         <option>МБОУ СОШ 46</option>
       </select>
   </div>
@@ -37,7 +36,6 @@
 
 
 <header class="header hidden" id="header">
-    <div class="NameUniversity" id="NameUniversity"></div>
     <div id="button-container" class="button-container">
         <button onclick="WeekButton('1')" class="btnn">ПН</button>
         <button onclick="WeekButton('2')" class="btnn">ВТ</button>
@@ -47,12 +45,16 @@
         <button onclick="WeekButton('6')" class="btnn">СБ</button>
         <button onclick="WeekButton('7')" class="btnn hidden">ВС</button>
 
-        <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek123 btnn-other qqq1"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
+        <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek123 btnn-other qqq1" id="ddd"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
         <a href="#" class="open-popup"><button class="btnn-other qqq1"><i class="fa fa-cog" aria-hidden="true" style="font-size: 1.3em;"></i></button></a>
       </div>
-      <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek123 btnn-other qqq2"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
-      <a href="#" class="open-popup"><button class="btnn-other qqq2"><i class="fa fa-cog" aria-hidden="true" style="font-size: 1.3em;"></i></button></a>
+      
+<div class="qqq2">
+  <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek333 btnn-other"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
+  <a href="#" class="open-popup"><button class="btnn-other"><i class="fa fa-cog" aria-hidden="true" style="font-size: 1.3em;"></i></button></a>
+</div>
 
+      <div class="NameUniversity" id="NameUniversity"></div>
 
 <!--       <button onclick="ChangeTheme()" class="btnn-other hidden"></button>
  -->
@@ -60,7 +62,7 @@
 
 
 <div class="main hidden" id="main">
-  
+
 </div>
 
 
@@ -69,7 +71,7 @@
       <i class="close-popup fa fa-times" aria-hidden="true"></i>
     <button onclick="ChangeWeekForever()">Сменить чередование недель</button>
     <button onclick="ChangeUniversity()">Сменить учебное заведение</button>
-    <p style="position: absolute; right: 0px; bottom: 5px;margin: 10px;">Версия 1.0</p>
+    <p class="version" style="position: absolute; right: 0px; bottom: 5px;margin: 10px;">Версия 1.1</p>
   </form>
 </div>  
 
