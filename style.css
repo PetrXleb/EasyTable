@@ -192,7 +192,7 @@ header{
     left: 50%;
     transform: translate(-50%, -50%) scale(0); 
     background: #fff;
-    width: 400px;
+    width: 450px;
     padding: 25px;
     transition: 0.5s all;
 }
@@ -285,25 +285,64 @@ header{
 }
 
 
+.app{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  border: 2px solid #f4bc84;
+  background: #f4bc84;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s all;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.app_hidden {
+  display: none;
+
+  width: 100%;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  border: 2px solid #f4bc84;
+  border-top: 0px;
+  background: #f4bc84;
+  text-transform: uppercase;
+  transition: 0.5s all;
+}
+
+.app:hover{
+  background: #fff;
+  color:#f4bc84;
+  transition: 0.5s all;
+  display: flex;
+}
+
+  
+.app:focus + .app_hidden { 
+  display: flex;
+  font-size: 14px;
+  text-transform: uppercase;
+  height: 80px;
+  width: calc(100%-5px);
+  padding-left: 5px;
+  font-family: 'Roboto Slab', serif;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.version{
+  position: absolute; 
+  left: 10px; 
+  top: 10px;
+  margin: 2px;
+}
 
 
 /* 
@@ -697,7 +736,7 @@ header{
     transition: 0.5s all;
 }
 
-.popup button {
+.popup button{
   width: 100%;
   height: 150px;
   display: flex;
@@ -713,10 +752,35 @@ header{
   margin-bottom: 30px;
   margin-top: 30px;
 }
+
+
+.app:focus + .app_hidden { 
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5em;
+  border: 2px solid #f4bc84;
+  background: #f4bc84;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s all;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+
 .version{
   font-size: 2em;
   height: 8%;
+  position: absolute; 
+  left: 10px; 
+  top: 0px;
+  margin: 2px;
 }
+
   .firstOfAll{
     font-size: 3em;
   }

@@ -260,7 +260,13 @@ function SwitchUniversity() {
 
 
 
+ 
+      //убрать переход по ссылке в кнопке с инфой
 
+      let b22 = document.getElementById("b22");
+      b22.addEventListener("click", function(event){
+       event.preventDefault();
+      });
 
 
 
@@ -539,7 +545,6 @@ async function renderTable(arr, currentWeekday) {
           flag = false;
       }
 
- 
 
       //если одна неделя - убираем кнопку смены недель
       let ChangeButton = document.querySelector('.changeWeek123');
