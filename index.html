@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>EasyTable</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://cdn.icon-icons.com/icons2/2596/PNG/512/table_report_icon_154764.png">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="https://cdn.icon-icons.com/icons2/2596/PNG/512/table_report_icon_154764.png"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
     <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    rel="stylesheet"
-  />
-</head>
-<body>
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="firstOfAll" id="firstOfAll">
+      <br />
+      <center><h1>Добро пожаловать в EasyTable</h1></center>
+      <br /><br />
+      <center>
+        <div>
+          <p style="margin-bottom: 20px">Выберите нужное рассписание:</p>
+          <select class="custom-select" id="mySelect">
+            <option style="padding-left: 20px">Click!</option>
+            <option>ДГУ: ИСИТ 2</option>
+            <option>МБОУ СОШ 46</option>
+          </select>
+        </div>
+      </center>
+      <div class="img1"></div>
+    </div>
 
-<div class="firstOfAll" id="firstOfAll">
-  <br>
-  <center><h1>Добро пожаловать в EasyTable</h1></center>
-  <br><br>
-  <center>
-    <div><p style="margin-bottom: 20px;">Выберите нужное рассписание:</p>
-      <select class="custom-select" id="mySelect">
-        <option style="padding-left: 20px;">Click!</option>
-        <option>ДГУ: ИСИТ 2</option>
-        <option>МБОУ СОШ 46</option>
-      </select>
-  </div>
-  </center>
-  <div class="img1"></div>
-
-</div>
-
-
-<header class="header hidden" id="header">
-    <div id="button-container" class="button-container">
+    <header class="header hidden" id="header">
+      <div id="button-container" class="button-container">
         <button onclick="WeekButton('1')" class="btnn">ПН</button>
         <button onclick="WeekButton('2')" class="btnn">ВТ</button>
         <button onclick="WeekButton('3')" class="btnn">СР</button>
@@ -45,46 +46,83 @@
         <button onclick="WeekButton('6')" class="btnn">СБ</button>
         <button onclick="WeekButton('7')" class="btnn hidden">ВС</button>
 
-        <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek123 btnn-other qqq1" id="ddd"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
-        <a href="#" class="open-popup"><button class="btnn-other qqq1"><i class="fa fa-cog" aria-hidden="true" style="font-size: 1.3em;"></i></button></a>
+        <button
+          style="margin-left: 30px"
+          onclick="ChangeWeek()"
+          class="changeWeek123 btnn-other qqq1"
+          id="ddd"
+        >
+          <i
+            class="fa fa-refresh"
+            aria-hidden="true"
+            style="font-size: 1.3em"
+          ></i>
+        </button>
+        <a href="#" class="open-popup"
+          ><button class="btnn-other qqq1">
+            <i
+              class="fa fa-cog"
+              aria-hidden="true"
+              style="font-size: 1.3em"
+            ></i></button
+        ></a>
       </div>
-      
-<div class="qqq2">
-  <button style="margin-left: 30px;" onclick="ChangeWeek()" class="changeWeek333 btnn-other"><i class="fa fa-refresh" aria-hidden="true" style="font-size: 1.3em;"></i></button>
-  <a href="#" class="open-popup"><button class="btnn-other"><i class="fa fa-cog" aria-hidden="true" style="font-size: 1.3em;"></i></button></a>
-</div>
+
+      <div class="qqq2">
+        <button
+          style="margin-left: 30px"
+          onclick="ChangeWeek()"
+          class="changeWeek333 btnn-other"
+        >
+          <i
+            class="fa fa-refresh"
+            aria-hidden="true"
+            style="font-size: 1.3em"
+          ></i>
+        </button>
+        <a href="#" class="open-popup"
+          ><button class="btnn-other">
+            <i
+              class="fa fa-cog"
+              aria-hidden="true"
+              style="font-size: 1.3em"
+            ></i></button
+        ></a>
+      </div>
 
       <div class="NameUniversity" id="NameUniversity"></div>
 
-<!--       <button onclick="ChangeTheme()" class="btnn-other hidden"></button>
+      <!--       <button onclick="ChangeTheme()" class="btnn-other hidden"></button>
  -->
 
-<meta name="format-detection" content="telephone=no">
-<meta name="format-detection" content="date=no">
-<meta name="format-detection" content="address=no">
-<meta name="format-detection" content="email=no">
-</header>
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="format-detection" content="date=no" />
+      <meta name="format-detection" content="address=no" />
+      <meta name="format-detection" content="email=no" />
+    </header>
 
+    <div class="main hidden" id="main"></div>
 
-<div class="main hidden" id="main">
-
-</div>
-
-<div class="popup__bg"> 
-  <form class="popup">
-      <i class="close-popup fa fa-times" aria-hidden="true"></i>
-    <button onclick="ChangeWeekForever()">Сменить чередование недель</button>
-    <button onclick="ChangeUniversity()">Сменить учебное заведение</button>
-    <!-- <div class="app" tabindex="1">Добавить иконку на рабочий экран</div> -->
-    <button class="app" tabindex="1" id="b22">Добавить иконку на рабочий экран</button>
-    <div class="app_hidden">Откройте настройки вашего браузера 
-      (в Google Chrome это три точки), далее
-      нажмите на «Добавить на главный экран»
+    <div class="popup__bg">
+      <form class="popup">
+        <i class="close-popup fa fa-times" aria-hidden="true"></i>
+        <button onclick="ChangeWeekForever()">
+          Сменить чередование недель
+        </button>
+        <button onclick="ChangeUniversity()">Сменить учебное заведение</button>
+        <!-- <div class="app" tabindex="1">Добавить иконку на рабочий экран</div> -->
+        <button class="app" tabindex="1" id="b22">
+          Добавить иконку на рабочий экран
+        </button>
+        <div class="app_hidden">
+          Откройте настройки вашего браузера (в Google Chrome это три точки),
+          далее нажмите на «Добавить на главный экран»
+        </div>
+        <p class="version">Версия 1.3</p>
+      </form>
     </div>
-    <p class="version">Версия 1.3</p>
-  </form>
-</div>  
 
-<script type="text/javascript" src="script.js"></script>
-</body>
+    <script type="text/javascript" src="anime.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
