@@ -22,6 +22,14 @@ header {
   --color-pop: #d6b8b5;
 }
 
+button {
+  color: rgb(4, 4, 4);
+}
+
+.custom-select {
+  color: rgb(4, 4, 4);
+}
+
 /* :root {
   --color-a: #fafafa;
   --color-button: #53699e;
