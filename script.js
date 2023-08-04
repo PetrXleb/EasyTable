@@ -1193,14 +1193,21 @@ function startt() {
   //
   console.log("Старт");
 }
-
 //
 //Смена темы
 //
+let metaTagColor1 = document.querySelector('meta[name="theme-color"]');
+let metaTagColor2 = document.querySelector(
+  'meta[name="msapplication-navbutton-color"]'
+);
+let metaTagColor3 = document.querySelector(
+  'meta[name="apple-mobile-web-app-status-bar-style"]'
+);
 
 function ChangeColor(theme_number) {
   switch (theme_number) {
     case 1:
+      console.log("первый цвет");
       document.querySelector("body").classList.remove("colorFontWhite");
       document.documentElement.style.setProperty("--color-a", "#fafafa");
       document.documentElement.style.setProperty("--color-button", "#0494a1");
@@ -1210,6 +1217,9 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-time", "#f4bc84");
       document.documentElement.style.setProperty("--color-info", "#d6b8b5");
       document.documentElement.style.setProperty("--color-pop", "#f4bc84");
+      metaTagColor1.setAttribute("content", "#fafafa");
+      metaTagColor2.setAttribute("content", "#fafafa");
+      metaTagColor3.setAttribute("content", "#fafafa");
       break;
     case 2:
       document.querySelector("body").classList.remove("colorFontWhite");
@@ -1221,6 +1231,9 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-time", "#3c90b8");
       document.documentElement.style.setProperty("--color-info", "#acadd2");
       document.documentElement.style.setProperty("--color-pop", "#3c90b8");
+      metaTagColor1.setAttribute("content", "#3c90b8");
+      metaTagColor2.setAttribute("content", "#3c90b8");
+      metaTagColor3.setAttribute("content", "#3c90b8");
       break;
     case 3:
       document.querySelector("body").classList.remove("colorFontWhite");
@@ -1232,6 +1245,9 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-time", "#e42424");
       document.documentElement.style.setProperty("--color-info", "#fc9c74");
       document.documentElement.style.setProperty("--color-pop", "#e42424");
+      metaTagColor1.setAttribute("content", "#e42424");
+      metaTagColor2.setAttribute("content", "#e42424");
+      metaTagColor3.setAttribute("content", "#e42424");
       break;
     case 4:
       document.querySelector("body").classList.add("colorFontWhite");
@@ -1243,6 +1259,9 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-time", "#41484E");
       document.documentElement.style.setProperty("--color-info", "#495057");
       document.documentElement.style.setProperty("--color-pop", "#eeeeee");
+      metaTagColor1.setAttribute("content", "#41484E");
+      metaTagColor2.setAttribute("content", "#41484E");
+      metaTagColor3.setAttribute("content", "#41484E");
       break;
     case 5:
       document.querySelector("body").classList.add("colorFontWhite");
@@ -1254,8 +1273,15 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-time", "#c75f28");
       document.documentElement.style.setProperty("--color-info", "#dc7c48");
       document.documentElement.style.setProperty("--color-pop", "#dc7c48");
+      metaTagColor1.setAttribute("content", "#040404");
+      metaTagColor2.setAttribute("content", "#040404");
+      metaTagColor3.setAttribute("content", "#040404");
       break;
   }
+  /*   console.log(metaTagColor1);
+  console.log(metaTagColor2);
+  console.log(metaTagColor3); */
+  //
 }
 function NewColorInStorage() {
   let theme_number = +localStorage.getItem("theme_timetable");
