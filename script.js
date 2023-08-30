@@ -818,18 +818,18 @@ function ChangeColor(theme_number) {
   switch (theme_number) {
     case 1:
       //console.log("первый цвет");
-      document.querySelector("body").classList.remove("colorFontWhite");
-      document.documentElement.style.setProperty("--color-a", "#fafafa");
-      document.documentElement.style.setProperty("--color-button", "#0494a1");
-      document.documentElement.style.setProperty("--color-active", "lightblue");
-      document.documentElement.style.setProperty("--color-day", "#523b30");
-      document.documentElement.style.setProperty("--color-click", "#204747");
-      document.documentElement.style.setProperty("--color-time", "#f4bc84");
-      document.documentElement.style.setProperty("--color-info", "#d6b8b5");
-      document.documentElement.style.setProperty("--color-pop", "#f4bc84");
-      metaTagColor1.setAttribute("content", "#fafafa");
-      metaTagColor2.setAttribute("content", "#fafafa");
-      metaTagColor3.setAttribute("content", "#fafafa");
+      document.querySelector("body").classList.add("colorFontWhite");
+      document.documentElement.style.setProperty("--color-a", "#212529");
+      document.documentElement.style.setProperty("--color-button", "#6c757d");
+      document.documentElement.style.setProperty("--color-active", "#adb5bd");
+      document.documentElement.style.setProperty("--color-day", "#adb5bd");
+      document.documentElement.style.setProperty("--color-click", "#ced4da");
+      document.documentElement.style.setProperty("--color-time", "#41484E");
+      document.documentElement.style.setProperty("--color-info", "#495057");
+      document.documentElement.style.setProperty("--color-pop", "#eeeeee");
+      metaTagColor1.setAttribute("content", "#41484E");
+      metaTagColor2.setAttribute("content", "#41484E");
+      metaTagColor3.setAttribute("content", "#41484E");
       break;
     case 2:
       document.querySelector("body").classList.remove("colorFontWhite");
@@ -860,18 +860,18 @@ function ChangeColor(theme_number) {
       metaTagColor3.setAttribute("content", "#e42424");
       break;
     case 4:
-      document.querySelector("body").classList.add("colorFontWhite");
-      document.documentElement.style.setProperty("--color-a", "#212529");
-      document.documentElement.style.setProperty("--color-button", "#6c757d");
-      document.documentElement.style.setProperty("--color-active", "#adb5bd");
-      document.documentElement.style.setProperty("--color-day", "#adb5bd");
-      document.documentElement.style.setProperty("--color-click", "#ced4da");
-      document.documentElement.style.setProperty("--color-time", "#41484E");
-      document.documentElement.style.setProperty("--color-info", "#495057");
-      document.documentElement.style.setProperty("--color-pop", "#eeeeee");
-      metaTagColor1.setAttribute("content", "#41484E");
-      metaTagColor2.setAttribute("content", "#41484E");
-      metaTagColor3.setAttribute("content", "#41484E");
+      document.querySelector("body").classList.remove("colorFontWhite");
+      document.documentElement.style.setProperty("--color-a", "#fafafa");
+      document.documentElement.style.setProperty("--color-button", "#0494a1");
+      document.documentElement.style.setProperty("--color-active", "lightblue");
+      document.documentElement.style.setProperty("--color-day", "#523b30");
+      document.documentElement.style.setProperty("--color-click", "#204747");
+      document.documentElement.style.setProperty("--color-time", "#f4bc84");
+      document.documentElement.style.setProperty("--color-info", "#d6b8b5");
+      document.documentElement.style.setProperty("--color-pop", "#f4bc84");
+      metaTagColor1.setAttribute("content", "#fafafa");
+      metaTagColor2.setAttribute("content", "#fafafa");
+      metaTagColor3.setAttribute("content", "#fafafa");
       break;
     case 5:
       document.querySelector("body").classList.add("colorFontWhite");
