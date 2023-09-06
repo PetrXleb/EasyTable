@@ -30,7 +30,7 @@ function IsWeekEven(date) {
 
   const isSunday = date.getDay() === 0;
   const previousWeekIsOdd = (weekNumber + (isSunday ? -1 : 0)) % 2 === 1;
-  return !previousWeekIsOdd;
+  return previousWeekIsOdd;
 }
 
 //
@@ -84,7 +84,6 @@ realWeelDay = 1;
 //
 //
 //
-console.log(mySelect);
 
 for (let i = 0; i < tabels.length; i++) {
   let optionElement = document.createElement("option");
@@ -428,6 +427,51 @@ async function renderTable(arr, currentWeekday) {
   const dayEl = document.createElement("div");
   dayEl.classList.add("day");
   mainEl.appendChild(dayEl);
+
+  //двойной клик = смена недели
+  try {
+    dayEl.addEventListener("touchstart", function (event) {
+      if (event.touches.length >= 3) {
+        ChangeWeek();
+        event.preventDefault();
+      }
+    });
+  } catch {}
+  //свайп = смена дня недели
+  try {
+    dayEl.addEventListener("touchstart", handleTouchStart, false);
+    dayEl.addEventListener("touchmove", handleTouchMove, false);
+    let x1 = null;
+
+    function handleTouchStart(e) {
+      const firstTouch = e.touches[0];
+      x1 = firstTouch.clientX;
+    }
+
+    function handleTouchMove(e) {
+      if (!x1) return false;
+      let x2 = e.touches[0].clientX;
+      let xDiff = x2 - x1;
+      //на сколько пикселей нужно подвинуть, чтобы сработал свайп
+      if (Math.abs(xDiff) < 250) return false;
+      if (xDiff > 0) {
+        //console.log("ПРАВО");
+        if (currentWeekday + 1 == 7) {
+          WeekButton(1);
+          ChangeWeek();
+        } else WeekButton(currentWeekday + 1);
+        //
+      } else {
+        //console.log("ЛЕВО");
+        if (currentWeekday - 1 == 0) {
+          WeekButton(6);
+          ChangeWeek();
+        } else WeekButton(currentWeekday - 1);
+        //
+      }
+      x1 = null;
+    }
+  } catch {}
 
   //если нет пар
   if (arr.length == 0) {
@@ -823,7 +867,7 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-button", "#6c757d");
       document.documentElement.style.setProperty("--color-active", "#adb5bd");
       document.documentElement.style.setProperty("--color-day", "#adb5bd");
-      document.documentElement.style.setProperty("--color-click", "#ced4da");
+      document.documentElement.style.setProperty("--color-click", "#f0f0f0");
       document.documentElement.style.setProperty("--color-time", "#41484E");
       document.documentElement.style.setProperty("--color-info", "#495057");
       document.documentElement.style.setProperty("--color-pop", "#eeeeee");
@@ -837,7 +881,7 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-button", "#53699e");
       document.documentElement.style.setProperty("--color-active", "#acadd2");
       document.documentElement.style.setProperty("--color-day", "#312c4d");
-      document.documentElement.style.setProperty("--color-click", "#484984");
+      document.documentElement.style.setProperty("--color-click", "#252542");
       document.documentElement.style.setProperty("--color-time", "#3c90b8");
       document.documentElement.style.setProperty("--color-info", "#acadd2");
       document.documentElement.style.setProperty("--color-pop", "#3c90b8");
@@ -879,10 +923,24 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-button", "#dd7600");
       document.documentElement.style.setProperty("--color-active", "#c4b59d");
       document.documentElement.style.setProperty("--color-day", "#ff5d00");
-      document.documentElement.style.setProperty("--color-click", "#db5a04");
+      document.documentElement.style.setProperty("--color-click", "#ff4d00");
       document.documentElement.style.setProperty("--color-time", "#c75f28");
       document.documentElement.style.setProperty("--color-info", "#dc7c48");
       document.documentElement.style.setProperty("--color-pop", "#dc7c48");
+      metaTagColor1.setAttribute("content", "#040404");
+      metaTagColor2.setAttribute("content", "#040404");
+      metaTagColor3.setAttribute("content", "#040404");
+      break;
+    case 6:
+      document.querySelector("body").classList.remove("colorFontWhite");
+      document.documentElement.style.setProperty("--color-a", "#98bc82");
+      document.documentElement.style.setProperty("--color-button", "#beb775");
+      document.documentElement.style.setProperty("--color-active", "#74ab63");
+      document.documentElement.style.setProperty("--color-day", "#27401d");
+      document.documentElement.style.setProperty("--color-click", "#3f572c");
+      document.documentElement.style.setProperty("--color-time", "#61873e");
+      document.documentElement.style.setProperty("--color-info", "#8eac50");
+      document.documentElement.style.setProperty("--color-pop", "#27401d");
       metaTagColor1.setAttribute("content", "#040404");
       metaTagColor2.setAttribute("content", "#040404");
       metaTagColor3.setAttribute("content", "#040404");
@@ -896,7 +954,7 @@ function ChangeColor(theme_number) {
 function NewColorInStorage() {
   let theme_number = +localStorage.getItem("theme_timetable");
   theme_number++;
-  if (theme_number == 6) theme_number = 1;
+  if (theme_number == 7) theme_number = 1;
   localStorage.setItem("theme_timetable", theme_number);
   ChangeColor(theme_number);
 }
