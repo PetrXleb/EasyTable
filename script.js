@@ -480,7 +480,9 @@ async function renderTable(arr, currentWeekday) {
           <center><h1 style="font-size: 3em;">Сегодня занятий нет!</h1></center>
           <br><br>
           <center><a href="https://youtu.be/RrHAxTdj3pM" target="_blank"><img src="2.jpg" id="img2"></a></center>
-          <br>
+          <br><br><br><br><br><br><br>
+          <div style="height: 1000px;"></div>
+          <center><h1 style="font-size: 3em;">День сна</h1></center>
           <br>
           `;
     flag = false;
@@ -940,10 +942,10 @@ function ChangeColor(theme_number) {
       document.documentElement.style.setProperty("--color-click", "#3f572c");
       document.documentElement.style.setProperty("--color-time", "#61873e");
       document.documentElement.style.setProperty("--color-info", "#8eac50");
-      document.documentElement.style.setProperty("--color-pop", "#27401d");
-      metaTagColor1.setAttribute("content", "#040404");
-      metaTagColor2.setAttribute("content", "#040404");
-      metaTagColor3.setAttribute("content", "#040404");
+      document.documentElement.style.setProperty("--color-pop", "#3f572c");
+      metaTagColor1.setAttribute("content", "#98bc82");
+      metaTagColor2.setAttribute("content", "#98bc82");
+      metaTagColor3.setAttribute("content", "#98bc82");
       break;
   }
   /*   console.log(metaTagColor1);
