@@ -430,7 +430,7 @@ async function renderTable(arr, currentWeekday) {
 
   //двойной клик = смена недели
   try {
-    dayEl.addEventListener("touchstart", function (event) {
+    mainEl.addEventListener("touchstart", function (event) {
       if (event.touches.length >= 3) {
         ChangeWeek();
         event.preventDefault();
@@ -439,8 +439,8 @@ async function renderTable(arr, currentWeekday) {
   } catch {}
   //свайп = смена дня недели
   try {
-    dayEl.addEventListener("touchstart", handleTouchStart, false);
-    dayEl.addEventListener("touchmove", handleTouchMove, false);
+    mainEl.addEventListener("touchstart", handleTouchStart, false);
+    mainEl.addEventListener("touchmove", handleTouchMove, false);
     let x1 = null;
 
     function handleTouchStart(e) {
@@ -455,18 +455,18 @@ async function renderTable(arr, currentWeekday) {
       //на сколько пикселей нужно подвинуть, чтобы сработал свайп
       if (Math.abs(xDiff) < 250) return false;
       if (xDiff > 0) {
-        //console.log("ПРАВО");
-        if (currentWeekday + 1 == 7) {
-          WeekButton(1);
-          ChangeWeek();
-        } else WeekButton(currentWeekday + 1);
-        //
-      } else {
         //console.log("ЛЕВО");
         if (currentWeekday - 1 == 0) {
           WeekButton(6);
           ChangeWeek();
         } else WeekButton(currentWeekday - 1);
+        //
+      } else {
+        //console.log("ПРАВО");
+        if (currentWeekday + 1 == 7) {
+          WeekButton(1);
+          ChangeWeek();
+        } else WeekButton(currentWeekday + 1);
         //
       }
       x1 = null;
@@ -480,10 +480,7 @@ async function renderTable(arr, currentWeekday) {
           <center><h1 style="font-size: 3em;">Сегодня занятий нет!</h1></center>
           <br><br>
           <center><a href="https://youtu.be/RrHAxTdj3pM" target="_blank"><img src="2.jpg" id="img2"></a></center>
-          <br><br><br><br><br><br><br>
-          <div style="height: 1000px;"></div>
-          <center><h1 style="font-size: 3em;">День сна</h1></center>
-          <br>
+          <br><br>
           `;
     flag = false;
   }
