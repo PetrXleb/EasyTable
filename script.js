@@ -11,6 +11,7 @@ let TimerEl = document.createElement("div");
 TimerEl.classList.add("hidden");
 
 let WhatWeekNumber;
+let RealWeekNumber;
 let dayCout = 0;
 let timetable;
 let d = new Date();
@@ -46,6 +47,7 @@ if (localStorage.getItem("weekRevers") == null) {
     WhatWeekNumber = IsWeekEven(new Date());
   }
 }
+RealWeekNumber = WhatWeekNumber;
 
 //
 //смещает дни недель в более удобный вид (понедельник - 1, воскресенье - 7, а не 0)
@@ -412,6 +414,64 @@ function PreRender(currentWeekday) {
   CreateName();
 }
 
+//для работы свайпов
+//свайп = смена дня недели
+//
+try {
+  mainEl.addEventListener("touchstart", handleTouchStart, false);
+  mainEl.addEventListener("touchmove", handleTouchMove, false);
+  let x1 = null;
+
+  function handleTouchStart(e) {
+    const firstTouch = e.touches[0];
+    x1 = firstTouch.clientX;
+  }
+
+  function handleTouchMove(e) {
+    if (!x1) return false;
+    let x2 = e.touches[0].clientX;
+    let xDiff = x2 - x1;
+    //на сколько пикселей нужно подвинуть, чтобы сработал свайп
+    if (Math.abs(xDiff) < 200) return false;
+    if (xDiff > 0) {
+      //console.log("ЛЕВО");
+      if (currentWeekday - 1 == 0) {
+        WeekButton(6);
+        ChangeWeek();
+        currentWeekday = 6;
+      } else {
+        WeekButton(currentWeekday - 1);
+        currentWeekday--;
+      }
+      //
+    } else {
+      //console.log("ПРАВО");
+      if (currentWeekday + 1 == 7) {
+        WeekButton(1);
+        ChangeWeek();
+        currentWeekday = 1;
+      } else {
+        WeekButton(currentWeekday + 1);
+        currentWeekday++;
+      }
+      //
+    }
+    x1 = null;
+  }
+} catch {}
+
+//Клик тремя пальцами = смена недели
+//
+//
+try {
+  mainEl.addEventListener("touchstart", function (event) {
+    if (event.touches.length >= 3) {
+      ChangeWeek();
+      event.preventDefault();
+    }
+  });
+} catch {}
+
 //
 //Отрисовка расписания
 //
@@ -427,51 +487,6 @@ async function renderTable(arr, currentWeekday) {
   const dayEl = document.createElement("div");
   dayEl.classList.add("day");
   mainEl.appendChild(dayEl);
-
-  //двойной клик = смена недели
-  try {
-    mainEl.addEventListener("touchstart", function (event) {
-      if (event.touches.length >= 3) {
-        ChangeWeek();
-        event.preventDefault();
-      }
-    });
-  } catch {}
-  //свайп = смена дня недели
-  try {
-    mainEl.addEventListener("touchstart", handleTouchStart, false);
-    mainEl.addEventListener("touchmove", handleTouchMove, false);
-    let x1 = null;
-
-    function handleTouchStart(e) {
-      const firstTouch = e.touches[0];
-      x1 = firstTouch.clientX;
-    }
-
-    function handleTouchMove(e) {
-      if (!x1) return false;
-      let x2 = e.touches[0].clientX;
-      let xDiff = x2 - x1;
-      //на сколько пикселей нужно подвинуть, чтобы сработал свайп
-      if (Math.abs(xDiff) < 250) return false;
-      if (xDiff > 0) {
-        //console.log("ЛЕВО");
-        if (currentWeekday - 1 == 0) {
-          WeekButton(6);
-          ChangeWeek();
-        } else WeekButton(currentWeekday - 1);
-        //
-      } else {
-        //console.log("ПРАВО");
-        if (currentWeekday + 1 == 7) {
-          WeekButton(1);
-          ChangeWeek();
-        } else WeekButton(currentWeekday + 1);
-        //
-      }
-      x1 = null;
-    }
-  } catch {}
 
   //если нет пар
   if (arr.length == 0) {
@@ -659,7 +674,10 @@ async function renderTable(arr, currentWeekday) {
       }
     }
     setTimeout(() => {
-      TimerEl.classList.remove("hidden");
+      if (WhatWeekNumber == RealWeekNumber) {
+        //console.log("Таймер появился");
+        TimerEl.classList.remove("hidden");
+      }
     }, 1200);
   };
 
