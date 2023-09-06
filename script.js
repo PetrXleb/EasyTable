@@ -226,6 +226,8 @@ function WeekButton(name) {
       continue;
     }
   }
+  currentWeekday = name;
+  //console.log(currentWeekday);
 }
 
 //
@@ -432,27 +434,23 @@ try {
     let x2 = e.touches[0].clientX;
     let xDiff = x2 - x1;
     //на сколько пикселей нужно подвинуть, чтобы сработал свайп
-    if (Math.abs(xDiff) < 200) return false;
+    if (Math.abs(xDiff) < 150) return false;
     if (xDiff > 0) {
       //console.log("ЛЕВО");
-      if (currentWeekday - 1 == 0) {
+      if (+currentWeekday - 1 == 0) {
         WeekButton(6);
         ChangeWeek();
-        currentWeekday = 6;
       } else {
-        WeekButton(currentWeekday - 1);
-        currentWeekday--;
+        WeekButton(+currentWeekday - 1);
       }
       //
     } else {
       //console.log("ПРАВО");
-      if (currentWeekday + 1 == 7) {
+      if (+currentWeekday + 1 == 7) {
         WeekButton(1);
         ChangeWeek();
-        currentWeekday = 1;
       } else {
-        WeekButton(currentWeekday + 1);
-        currentWeekday++;
+        WeekButton(+currentWeekday + 1);
       }
       //
     }
