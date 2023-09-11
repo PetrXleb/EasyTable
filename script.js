@@ -23,15 +23,31 @@ let invertFlag = false;
 //Определяет четная неделя или нет
 //
 function IsWeekEven(date) {
-  const oneJan = new Date(date.getFullYear(), 0, 1);
+  /*   const oneJan = new Date(date.getFullYear(), 0, 1);
   const msInWeek = 604800000;
   const weekNumber = Math.ceil(
-    ((date - oneJan) / msInWeek + oneJan.getDay() + 1) / 7
+    ((1694464523214 + 904800000 - oneJan) / msInWeek + oneJan.getDay() + 1) / 7
   );
+  console.log(date.getTime());
 
   const isSunday = date.getDay() === 0;
   const previousWeekIsOdd = (weekNumber + (isSunday ? -1 : 0)) % 2 === 1;
-  return previousWeekIsOdd;
+  console.log(!previousWeekIsOdd);
+  return !previousWeekIsOdd; */
+
+  let year = new Date().getFullYear();
+  let month = new Date().getMonth();
+  let today = new Date(year, month, 0).getTime();
+  let now = new Date().getTime();
+  let week = Math.round((now - today) / (1000 * 60 * 60 * 24 * 7));
+  //для проверки 86400000 * 7 - неделяв мс
+  if (week % 2) {
+    console.log("Текущая неделя - вторая");
+    return false;
+  } else {
+    console.log("Текущая неделя - первая");
+    return true;
+  }
 }
 
 //
