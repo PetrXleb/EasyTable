@@ -147,6 +147,15 @@ function SwitchUniversity() {
     case "ДГУ: ПИвЭиУ 1":
       timetable = timetable_PI1;
       break;
+    case "ДХУ: Об.дерева 1":
+      timetable = timetable_DHY_derevo1;
+      break;
+    case "ДХУ: Об.дерева 2":
+      timetable = timetable_DHY_derevo2;
+      break;
+    case "ДХУ: Об.дерева 3":
+      timetable = timetable_DHY_derevo3;
+      break;
   }
 }
 
