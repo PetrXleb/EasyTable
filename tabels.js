@@ -1,11 +1,4 @@
 //
-const tabels = [
-  "ДГУ: ПИвЭиУ 1",
-  "ДГУ: ИСИТ 3",
-  "ДХУ: Об.дерева 1",
-  "ДХУ: Об.дерева 2",
-  "ДХУ: Об.дерева 3",
-];
 
 let timetable_isit3 = {
   name: "ДГУ: ИСИТ 3",
@@ -754,3 +747,24 @@ let timetable_DHY_derevo3 = {
     Sunday: [],
   },
 };
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+const tabels = [
+  timetable_isit3,
+  timetable_PI1,
+  timetable_DHY_derevo1,
+  timetable_DHY_derevo2,
+  timetable_DHY_derevo3,
+];

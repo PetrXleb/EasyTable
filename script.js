@@ -23,18 +23,6 @@ let invertFlag = false;
 //Определяет четная неделя или нет
 //
 function IsWeekEven(date) {
-  /*   const oneJan = new Date(date.getFullYear(), 0, 1);
-  const msInWeek = 604800000;
-  const weekNumber = Math.ceil(
-    ((1694464523214 + 904800000 - oneJan) / msInWeek + oneJan.getDay() + 1) / 7
-  );
-  console.log(date.getTime());
-
-  const isSunday = date.getDay() === 0;
-  const previousWeekIsOdd = (weekNumber + (isSunday ? -1 : 0)) % 2 === 1;
-  console.log(!previousWeekIsOdd);
-  return !previousWeekIsOdd; */
-
   let year = new Date().getFullYear();
   let month = new Date().getMonth();
   let today = new Date(year, month, 0).getTime();
@@ -97,22 +85,16 @@ realWeelDay = 1;
  */
 
 //
+//Ставим название вузов в опции
 //
-//
-//
-//
-//
-
-for (let i = 0; i < tabels.length; i++) {
+for (const obj of tabels) {
   let optionElement = document.createElement("option");
-  optionElement.value = tabels[i];
-  optionElement.text = tabels[i];
+  optionElement.value = obj.name;
+  optionElement.text = obj.name;
   mySelect.appendChild(optionElement);
 }
-
 //
-//
-//
+//Кликаем по опции - загружается нужное расписание
 //
 let selectedOption = "";
 mySelect.addEventListener("change", function ChoosingUniversity() {
@@ -122,8 +104,14 @@ mySelect.addEventListener("change", function ChoosingUniversity() {
   ) {
     //берем нужный вуз
     selectedOption = this.value;
-    SwitchUniversity();
-
+    for (const obj of tabels) {
+      if (obj.name == selectedOption) {
+        timetable = obj;
+        console.log(obj);
+      }
+    }
+    //
+    //SwitchUniversity();
     localStorage.setItem("University", selectedOption);
   }
 
@@ -136,7 +124,7 @@ mySelect.addEventListener("change", function ChoosingUniversity() {
   PreRender(currentWeekday); //определяем сколько недель в рассписании и начинаем отрисовку расписания
 });
 
-//
+/* //
 //Свич - Выбор Универа
 //
 function SwitchUniversity() {
@@ -158,9 +146,9 @@ function SwitchUniversity() {
       break;
   }
 }
+ */
 
 //убрать переход по ссылке в кнопке с инфой
-
 let b22 = document.getElementById("b22");
 b22.addEventListener("click", function (event) {
   event.preventDefault();
@@ -863,8 +851,13 @@ function startt() {
     localStorage.getItem("University") != "undefined"
   ) {
     selectedOption = localStorage.getItem("University");
-    SwitchUniversity();
-
+    console.log();
+    for (const obj of tabels) {
+      if (obj.name == selectedOption) {
+        timetable = obj;
+        console.log(obj);
+      }
+    }
     firstOfAllEl.classList.toggle("hidden");
     headerEl.classList.toggle("hidden");
     mainEl.classList.toggle("hidden");
