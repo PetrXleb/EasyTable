@@ -70,9 +70,10 @@ function normalWeekDay(weekday) {
   }
 }
 
-if (d.getDay() == 0) {
+/* if (d.getDay() == 0) {
   WhatWeekNumber = !WhatWeekNumber;
-}
+} */
+
 currentWeekday = normalWeekDay(currentWeekday);
 realWeelDay = currentWeekday;
 
@@ -436,6 +437,9 @@ try {
   mainEl.addEventListener("touchstart", handleTouchStart, false);
   mainEl.addEventListener("touchmove", handleTouchMove, false);
   let x1 = null;
+  let x2 = null;
+  //на сколько пикселей нужно подвинуть, чтобы сработал свайп
+  let x_index = 150;
 
   function handleTouchStart(e) {
     const firstTouch = e.touches[0];
@@ -444,10 +448,10 @@ try {
 
   function handleTouchMove(e) {
     if (!x1) return false;
-    let x2 = e.touches[0].clientX;
+    x2 = e.touches[0].clientX;
     let xDiff = x2 - x1;
-    //на сколько пикселей нужно подвинуть, чтобы сработал свайп
-    if (Math.abs(xDiff) < 150) return false;
+    if (Math.abs(xDiff) < x_index) return false;
+    //
     if (xDiff > 0) {
       //console.log("ЛЕВО");
       if (+currentWeekday - 1 == 0) {
