@@ -22,7 +22,7 @@ let invertFlag = false;
 //
 //Определяет четная неделя или нет
 //
-function IsWeekEven(date) {
+/* function IsWeekEven(date) {
   let year = new Date().getFullYear();
   let month = new Date().getMonth();
   let today = new Date(year, month, 0).getTime();
@@ -36,23 +36,35 @@ function IsWeekEven(date) {
     console.log("Текущая неделя - первая");
     return true;
   }
-}
+} */
 
 //
 //Проверяем, есть ли реверс недель
 //
-if (localStorage.getItem("weekRevers") == null) {
-  WhatWeekNumber = IsWeekEven(new Date());
+Date.prototype.getWeek = function () {
+  let onejan = new Date(this.getFullYear(), 0, 1);
+  return Math.ceil(((this - onejan) / 86400000 + onejan.getDay() + 1) / 7);
+};
+let currentDate = new Date();
+currentDate.setDate(currentDate.getDate() + 5); //+5  +12
+/* console.log(currentDate); /// */
+let weekNumber = currentDate.getWeek();
+function isEvenWeek(weekNumber) {
+  return weekNumber % 2 === 0;
+}
+isEvenWeek(weekNumber);
+//
+if (localStorage.getItem("weekRevers") === null) {
+  WhatWeekNumber = isEvenWeek(weekNumber);
 } else {
   if (+localStorage.getItem("weekRevers")) {
-    WhatWeekNumber = IsWeekEven(new Date());
+    WhatWeekNumber = isEvenWeek(weekNumber);
     WhatWeekNumber = !WhatWeekNumber;
   } else {
-    WhatWeekNumber = IsWeekEven(new Date());
+    WhatWeekNumber = isEvenWeek(weekNumber);
   }
 }
 RealWeekNumber = WhatWeekNumber;
-
 //
 //смещает дни недель в более удобный вид (понедельник - 1, воскресенье - 7, а не 0)
 //
@@ -301,7 +313,7 @@ function ChangeWeekForever() {
     PreRender(YellowWeekday);
   }
 
-  if (localStorage.getItem("weekRevers") == null) {
+  if (localStorage.getItem("weekRevers") === null) {
     localStorage.setItem("weekRevers", 1);
   } else {
     if (+localStorage.getItem("weekRevers")) {
@@ -509,7 +521,7 @@ async function renderTable(arr, currentWeekday) {
           <br>
           <center><h1 style="font-size: 3em;">Сегодня занятий нет!</h1></center>
           <br><br>
-          <center><a href="https://youtu.be/RrHAxTdj3pM" target="_blank"><img src="2.jpg" id="img2"></a></center>
+          <center><a href="https://youtu.be/RrHAxTdj3pM" target="_blank"><img src="cat.jpg" id="img2"></a></center>
           <br><br>
           `;
     flag = false;
