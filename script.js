@@ -46,7 +46,7 @@ Date.prototype.getWeek = function () {
   return Math.ceil(((this - onejan) / 86400000 + onejan.getDay() + 1) / 7);
 };
 let currentDate = new Date();
-currentDate.setDate(currentDate.getDate() + 5); //+5  +12
+currentDate.setDate(currentDate.getDate() + 6); //+6  +13
 /* console.log(currentDate); /// */
 let weekNumber = currentDate.getWeek();
 function isEvenWeek(weekNumber) {
