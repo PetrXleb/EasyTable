@@ -451,7 +451,7 @@ try {
   let x1 = null;
   let x2 = null;
   //на сколько пикселей нужно подвинуть, чтобы сработал свайп
-  let x_index = 400;
+  let x_index = 300;
 
   function handleTouchStart(e) {
     const firstTouch = e.touches[0];
