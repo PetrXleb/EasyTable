@@ -69,7 +69,7 @@ body {
   margin-bottom: 50px;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .NoOverflow {
@@ -149,6 +149,48 @@ html {
   margin-bottom: 5px;
 }
 
+.examHeader {
+  margin-bottom: 30px;
+}
+.examBody ol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.examBody ol li {
+  font-size: 22px;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+.examDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.examDiv button {
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  width: 200px;
+  height: 50px;
+  border: 5px solid var(--color-day);
+  border-radius: 20px;
+  color: var(--color-day);
+  background-color: #dddddd00;
+  transition: 0.1s;
+}
+
+.examImg {
+  margin-top: 50px;
+}
+
+.examDiv button:hover {
+  scale: 1.05;
+}
+
 @media (max-width: 800px) {
   .countdown-container {
     max-width: 90%;
@@ -188,14 +230,6 @@ html {
 /* remove default arrow in IE */
 select::-ms-expand {
   display: none;
-}
-
-/* Пасхалки */
-.egg {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 0;
 }
 
 /*  Попап */
@@ -631,6 +665,50 @@ button {
 /* Для телефонов */
 
 @media screen and (orientation: portrait) {
+  .examDiv {
+    margin-top: 10vh;
+  }
+
+  .examHeader {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  .examBody ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .examBody ol li {
+    font-size: 32px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
+  .examDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .examDiv button {
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 260px;
+    height: 70px;
+    border: 5px solid var(--color-day);
+    border-radius: 20px;
+    color: var(--color-day);
+    background-color: #dddddd00;
+    transition: 0.1s;
+  }
+
+  .examImg {
+    margin-top: 60px;
+  }
+
   .qqq1 {
     display: none;
   }

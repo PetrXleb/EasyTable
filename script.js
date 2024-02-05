@@ -451,7 +451,7 @@ try {
   let x1 = null;
   let x2 = null;
   //на сколько пикселей нужно подвинуть, чтобы сработал свайп
-  let x_index = 150;
+  let x_index = 400;
 
   function handleTouchStart(e) {
     const firstTouch = e.touches[0];
@@ -521,7 +521,7 @@ async function renderTable(arr, currentWeekday) {
           <br>
           <center><h1 style="font-size: 3em;">Сегодня занятий нет!</h1></center>
           <br><br>
-          <center><a href="https://youtu.be/RrHAxTdj3pM" target="_blank"><img src="cat.jpg" id="img2"></a></center>
+          <center><a href="https://youtu.be/aI-PT_8JD_U?si=qr_59xkKVNhWm2up" target="_blank"><img src="cat.jpeg" id="img2"></a></center>
           <br><br>
           `;
     flag = false;
@@ -906,6 +906,51 @@ let metaTagColor2 = document.querySelector(
 let metaTagColor3 = document.querySelector(
   'meta[name="apple-mobile-web-app-status-bar-style"]'
 );
+
+const showExamBtn = document.getElementById("showExamBtn");
+showExamBtn.addEventListener("click", function (event) {
+  event.preventDefault(); // Отменяем стандартное действие
+});
+
+function showExam() {
+  //скрываем хэдер и мейн
+  let main = document.querySelector(".main");
+  let header = document.querySelector(".header");
+  if (main.classList.contains("hidden")) {
+    main.classList.remove("hidden");
+    header.classList.remove("hidden");
+    //скрываем блок с экз
+    let examDiv = document.querySelector(".examDiv");
+    examDiv.classList.add("hidden");
+    let examBody = document.querySelector(".examBody");
+    examBody.innerHTML = "";
+  } else {
+    main.classList.add("hidden");
+    header.classList.add("hidden");
+    //показываем блок экзаменов
+    let examDiv = document.querySelector(".examDiv");
+    let examHeader = document.querySelector(".examHeader");
+    examDiv.classList.remove("hidden");
+    examHeader.innerHTML = timetable.name + " — Экзамены";
+    //отображаем сами экзамены
+    let examBody = document.querySelector(".examBody");
+    let listContainer = document.createElement("ol");
+    timetable.exam.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+      listContainer.appendChild(listItem);
+    });
+    examBody.appendChild(listContainer);
+    //скрываем попап
+    popupBg.classList.remove("active");
+    popup.classList.remove("active");
+    //добавляем изображение
+    let examImg = document.querySelector(".examImg");
+    examImg.innerHTML = `
+    <center><a href="https://youtu.be/KwKJ6gtOGpQ?si=rQOg87OQKRpGahd3" target="_blank"><img src="cat2.jpeg" id="img2"></a></center>
+    `;
+  }
+}
 
 function ChangeColor(theme_number) {
   switch (theme_number) {

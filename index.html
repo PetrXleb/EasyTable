@@ -163,6 +163,7 @@
     <div class="popup__bg">
       <form class="popup">
         <i class="close-popup fa fa-times" aria-hidden="true"></i>
+        <button onclick="showExam()" id="showExamBtn">Показать экзамены</button>
         <button onclick="ChangeWeekForever()">
           Сменить чередование недель
         </button>
@@ -176,16 +177,22 @@
           далее нажмите на «Добавить на главный экран»
         </div>
         <p class="version">
-          <a href="https://youtu.be/9iOpVqXz7dk" target="_blank"
-            >Версия 1.5.2</a
+          <a
+            href="https://youtu.be/fvAi2SZw0ME?si=F6QcNqclEZtjnAxU"
+            target="_blank"
+            >Версия 1.6.0</a
           >
         </p>
       </form>
     </div>
 
-    <a href="https://youtu.be/W-aMzcxKOGw" target="_blank"
-      ><div class="egg"></div
-    ></a>
+    <div class="examDiv hidden">
+      <br /><br />
+      <center><h1 class="examHeader"></h1></center>
+      <div class="examBody"></div>
+      <button onclick="showExam()">Назад</button>
+      <div class="examImg"></div>
+    </div>
 
     <script type="text/javascript" src="anime.min.js"></script>
     <script type="text/javascript" src="tabels.js"></script>
