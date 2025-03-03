@@ -17,21 +17,15 @@ let timetable_isit4 = {
   ],
   firstWeek: {
     Monday: [
-      lessonsTime.l3[0],
-      lessonsTime.l3[1],
-      'Упр данными 2п/г',
-      'Руденко А.И.',
-      '2.12',
-
       lessonsTime.l4[0],
       lessonsTime.l4[1],
       'Управление данными лек',
       'Шахабудинов Я.М.',
-      '2.1',
+      '4.4',
 
       lessonsTime.l5[0],
       lessonsTime.l5[1],
-      'Упр данными 1п/г',
+      'Упр данными 1п/г | 2п/г',
       'Руденко А.И.',
       '2.12',
     ],
@@ -53,7 +47,7 @@ let timetable_isit4 = {
       lessonsTime.l4[1],
       'Упр данными 1п/г | Робот компл и системы 2 п/г',
       'Руденко А.И. | Гаджиев А.М.',
-      '2.11 | ВЦ',
+      '2.12 | ВЦ',
 
       lessonsTime.l5[0],
       lessonsTime.l5[1],
@@ -79,7 +73,7 @@ let timetable_isit4 = {
       lessonsTime.l3[1],
       'Упр данными лек',
       'Шахабудинов Я.М.',
-      '4.6',
+      '2.15',
     ],
     Saturday: [
       lessonsTime.l1[0],
@@ -98,18 +92,12 @@ let timetable_isit4 = {
       lessonsTime.l3[1],
       'Робот компл и системы 2 п/г',
       'Гаджиев А.М.',
-      '2.9',
+      'ВЦ',
     ],
     Sunday: [],
   },
   secondWeek: {
     Monday: [
-      lessonsTime.l3[0],
-      lessonsTime.l3[1],
-      'Упр данными 2 п/г',
-      'Руденко А.И.',
-      '2.12',
-
       lessonsTime.l4[0],
       lessonsTime.l4[1],
       'Упр данными лек',
@@ -118,17 +106,11 @@ let timetable_isit4 = {
 
       lessonsTime.l5[0],
       lessonsTime.l5[1],
-      'Упр данными 1 п/г',
+      'Упр данными 1 п/г | 2п/г',
       'Руденко А.И.',
       '2.12',
     ],
     Tuesday: [
-      lessonsTime.l3[0],
-      lessonsTime.l3[1],
-      'Робот компл и системы 2 п/г',
-      'Гаджиев А.М.',
-      '2.12',
-
       lessonsTime.l4[0],
       lessonsTime.l4[1],
       'Робот компл и системы лек',
@@ -137,7 +119,7 @@ let timetable_isit4 = {
 
       lessonsTime.l5[0],
       lessonsTime.l5[1],
-      'Робот компл и системы 1 п/г',
+      'Робот компл и системы 1 п/г | 2 п/г',
       'Гаджиев А.М.',
       '2.12',
     ],
@@ -150,21 +132,15 @@ let timetable_isit4 = {
 
       lessonsTime.l2[0],
       lessonsTime.l2[1],
-      'Разраб и упр IT проектами лек',
-      'Махмудов Б.Э.',
-      '2.1',
-
-      lessonsTime.l3[0],
-      lessonsTime.l3[1],
-      'Упр данными 2 п/г',
-      'Руденко А.И.',
-      'ВЦ',
+      'Робот компл и системы 1п/г | Упр данными 2п/г',
+      'Гаджиев А.М. | Руденко А.И.',
+      '2.12 | 2.12',
     ],
     Thursday: [],
     Friday: [
       lessonsTime.l2[0],
       lessonsTime.l2[1],
-      'Робот компл и системы 1п/г',
+      'Робот компл и системы 2п/г',
       'Гаджиев А.М.',
       'ВЦ',
 
@@ -182,9 +158,9 @@ let timetable_isit4 = {
 
       lessonsTime.l5[0],
       lessonsTime.l5[1],
-      'Робот компл и системы 2п/г',
-      'Гаджиев А.М.',
-      'ВЦ',
+      'Разраб и упр IT проектами лек',
+      'Махмудов Б.Э.',
+      '2.1',
     ],
     Saturday: [],
     Sunday: [],
